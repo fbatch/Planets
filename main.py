@@ -2,19 +2,20 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
 
-planets = [('Меркурий', 2.646, 'img/Mercury.jpg'),
-            ('Венера', 1.104, 'img/Venus.jpg'),
-            ('Марс', 2.661, 'img/Mars.jpg'),
-            ('Юпитер', 0.423, 'img/Jupiter.jpg'),
-            ('Сатурн', 1.087, 'img/Saturn.jpg'),
-            ('Уран', 1.125, 'img/Uran.jpg'),
-            ('Нептун', 0.889, 'img/Neptune.jpg')]
+planets = [('Mercury', 2.646, 'img/Mercury.jpg'),
+            ('Venus', 1.104, 'img/Venus.jpg'),
+            ('Mars', 2.661, 'img/Mars.jpg'),
+            ('Jupiter', 0.423, 'img/Jupiter.jpg'),
+            ('Saturn', 1.087, 'img/Saturn.jpg'),
+            ('Uran', 1.125, 'img/Uran.jpg'),
+            ('Neptune', 0.889, 'img/Neptune.jpg')]
 
 planets_names = []
-for planet in planets:
-    planets_names.append(planet[0])
+for p in planets:
+    planets_names.append(p[0])
 
-def calculate_weight(_):  # не функция, а процедура
+
+def calculate_weight(_):
     global photo
     weight = earth_weight_ent.get()
     planet_name = planets_list_box.get()
@@ -27,9 +28,11 @@ def calculate_weight(_):  # не функция, а процедура
                 result_lb['text'] = 'Вы не ввеи вес!'
             else:
                 result_lb['text'] = 'Ваш вес на планете ' + planet[0] + ' равен ' + str(round(float(weight) / planet[1], 1)) + ' кг'
+
+
 window = Tk()
 window.title('Калькулятор веса на разных планетах')
-window.geometry('350x400+800+320')  # 350x400 - размеры окна; +800+320 - местоположение на экране
+window.geometry('350x400+800+320')
 
 earth_weight_lb = Label(window, text='Введите свой вес на планете Земля:', font='Arial 14')
 earth_weight_lb.pack()
