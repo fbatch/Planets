@@ -25,22 +25,22 @@ def calculate_weight(_):
             photo = ImageTk.PhotoImage(planet_img)
             planet_canvas.itemconfig(planet_canvas_img, image=photo)
             if weight == '':
-                result_lb['text'] = 'Вы не ввеи вес!'
+                result_lb['text'] = 'Enter your Weight'
             else:
-                result_lb['text'] = 'Ваш вес на планете ' + planet[0] + ' равен ' + str(round(float(weight) / planet[1], 1)) + ' кг'
+                result_lb['text'] = 'Your weight on ' + planet[0] + ' equals ' + str(round(float(weight) / planet[1], 1)) + ' kg.'
 
 
 window = Tk()
-window.title('Калькулятор веса на разных планетах')
+window.title('Weight Calculator for different planets')
 window.geometry('350x400+800+320')
 
-earth_weight_lb = Label(window, text='Введите свой вес на планете Земля:', font='Arial 14')
+earth_weight_lb = Label(window, text='Enter your Earth weight:', font='Arial 14')
 earth_weight_lb.pack()
 
 earth_weight_ent = Entry(window, font='arial 12')
 earth_weight_ent.pack()
 
-choose_planet_lb = Label(window, text='Выберите планету:', font='Arial 14')
+choose_planet_lb = Label(window, text='Choose planet:', font='Arial 14')
 choose_planet_lb.pack()
 
 planets_list_box = ttk.Combobox(window, state='readonly', values=planets_names, font='Arial 12')
